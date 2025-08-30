@@ -1,5 +1,6 @@
 import { ethers } from 'ethers';
 import dotenv from 'dotenv';
+import liskConfig, { getEventManagerContract as getLiskContract, getEventManagerContractWithSigner as getLiskContractWithSigner } from './lisk.js';
 
 dotenv.config();
 
@@ -65,7 +66,10 @@ export const EVENT_MANAGER_ABI = [
 ];
 
 // Get contract instance
-export function getEventManagerContract() {
+export function getEventManagerContract(chain = 'crossfi') {
+  if (chain === 'lisk') {
+    return getLiskContract();
+  }
   const contractAddress = process.env.EVENT_MANAGER_CONTRACT || 
                          process.env.VITE_EVENT_MANAGER_CONTRACT || 
                          CONTRACT_ADDRESSES.EVENT_MANAGER;
@@ -86,7 +90,10 @@ export function getEventManagerContract() {
 }
 
 // Get contract instance with signer
-export function getEventManagerContractWithSigner() {
+export function getEventManagerContractWithSigner(chain = 'crossfi') {
+  if (chain === 'lisk') {
+    return getLiskContractWithSigner();
+  }
   if (!wallet) {
     throw new Error('Wallet not configured');
   }

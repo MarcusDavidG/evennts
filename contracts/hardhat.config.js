@@ -6,6 +6,7 @@ require("dotenv").config();
 
 const CROSSFI_TESTNET_RPC = process.env.CROSSFI_TESTNET_RPC || "https://rpc.testnet.ms";
 const CROSSFI_MAINNET_RPC = process.env.CROSSFI_MAINNET_RPC || "https://rpc.mainnet.ms";
+const LISK_SEPOLIA_RPC = process.env.LISK_SEPOLIA_RPC || "https://rpc.sepolia.lisk.com";
 const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x0000000000000000000000000000000000000000000000000000000000000000";
 
 module.exports = {
@@ -34,6 +35,11 @@ module.exports = {
       accounts: [PRIVATE_KEY],
       chainId: 4158,
       gasPrice: 1_000_000_000,
+    },
+    lisk: {
+      url: LISK_SEPOLIA_RPC,
+      chainId: 4202,
+      accounts: [PRIVATE_KEY],
     },
   },
   gasReporter: {

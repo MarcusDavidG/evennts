@@ -1,7 +1,7 @@
 {
-  "name": "crossfi-ticketing-backend",
+  "name": "evennts-backend",
   "version": "1.0.0",
-  "description": "Backend API for CrossFi Event Ticketing Platform",
+  "description": "Backend API for evennts - Multi-chain Event Ticketing Platform",
   "main": "app.js",
   "type": "module",
   "scripts": {
